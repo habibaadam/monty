@@ -51,9 +51,9 @@ struct FileData
 {
 	FILE *filePointer;
 	char *currentLine;
-};
+} filedata_t;
 
-extern struct FileData *filedata;
+extern filedata_t args;
 void arguments(int argc);
 void intli_arguments(void);
 void malloc_failed(void);
