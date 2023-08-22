@@ -43,6 +43,9 @@ typedef struct instruction_s
  * struct FileData - Represents data related to a file.
  * @filePointer: Pointer to the file stream (FILE *).
  * @currentLine: Pointer to the current line data (char *).
+ * @tracker: keeps track of lines read
+ * @toks: stores words from file read
+ * @array_of_toks: allocates memory for array of tokens
  *
  * This structure encapsulates information related to a file, including
  * a file stream and the current line data read from that stream.
@@ -54,6 +57,10 @@ typedef struct FileData
 {
 	FILE *filePointer;
 	char *currentLine;
+	unsigned int tracker;
+	char *toks;
+	int array_of_toks;
+	instruction_t *instruct_ptr;
 } filedata_t;
 
 filedata_t *args;
