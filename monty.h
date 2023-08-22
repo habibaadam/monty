@@ -38,23 +38,23 @@ typedef struct instruction_s
 } instruction_t;
 
 /**
- 41  * struct FileData - Represents data related to a file.
- 42  * @filePointer: Pointer to the file stream (FILE *).
- 43  * @currentLine: Pointer to the current line data (char *).
- 44  *
- 45  * This structure encapsulates information related to a file, including
- 46  * a file stream and the current line data read from that stream.
- 47  * It is designed to manage reading lines from a file and storing their
- 48  * associated data.
- 49  */
- 50 struct FileData
- 51 {
- 52     FILE *filePointer;
- 53     char *currentLine;
- 54 };
- 55
- 56 extern struct FileData *filedata;
- 57 void arguments(int argc);
- 58 void intli_arguments(void);
- 59 void malloc_failed(void);
+ * struct FileData - Represents data related to a file.
+ * @filePointer: Pointer to the file stream (FILE *).
+ * @currentLine: Pointer to the current line data (char *).
+ *
+ * This structure encapsulates information related to a file, including
+ * a file stream and the current line data read from that stream.
+ * It is designed to manage reading lines from a file and storing their
+ * associated data.
+ */
+struct FileData
+{
+	FILE *filePointer;
+	char *currentLine;
+};
+
+extern struct FileData *filedata;
+void arguments(int argc);
+void intli_arguments(void);
+void malloc_failed(void);
 #endif /* MONTY_H */

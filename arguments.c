@@ -1,10 +1,10 @@
 #include "monty.h"
-  void arguments(int argc)
-  {
+void arguments(int argc)
+{
 
-     if (argc == 2)
-         return;
+	if (argc == 2)
+		return;
 
-      fprintf(stderr, "USAGE: monty file\n");
-      exit(EXIT_FAILURE);
+	fprintf(stderr, "USAGE: monty file\n");
+	exit(EXIT_FAILURE);
 }
