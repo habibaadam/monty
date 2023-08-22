@@ -70,3 +70,39 @@ void read_file(char *file)
 	}
 	args->filePointer = file_p;
 }
+
+/**
+ * tokens_maker - function that splits words according to specified delimiter
+ */
+void tokens_maker(void)
+{
+	int h = 0;
+	char *token = NULL, *line_dup = NULL;
+
+	line_dup = strdup(args->currentLine);
+	args->array_of_toks = 0;
+	token = strtok(line_dup, TOK_DELIM);
+
+	while (token != NULL)
+	{
+		args->array_of_toks += 1;
+		token = strtok(NULL, TOK_DELIM);
+	}
+
+	args->toks = malloc(sizeof(char *) * (args->array_of_toks + 1));
+	strcpy(line_dup, args->currentLine);
+	token = strtok(line_dup, TOK_DELIM);
+
+	while (token != NULL)
+	{
+		args->toks[h] = malloc(sizeof(char) * (strlen(token) + 1));
+		if (args->toks[h] == NULL)
+			malloc_error();
+		strcpy(args->toks[h], token);
+		token = strtok(NULL, TOK_DELIM);
+		h++;
+	}
+	args->toks[h] = NULL;
+	free(line_dup);
+}
+

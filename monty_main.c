@@ -27,6 +27,10 @@ int main(int argc, char *argv[])
 	while ((read_args = getline(&args->currentLine, &m, args->filePointer))
 			!= -1)
 	{
+		args->tracker += 1;
+		tokens_maker();
+
+
 		printf("%s", args->currentLine);
 	}
 

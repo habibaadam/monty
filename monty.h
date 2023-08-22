@@ -59,7 +59,7 @@ typedef struct FileData
 	FILE *filePointer;
 	char *currentLine;
 	unsigned int tracker;
-	char *toks;
+	char **toks;
 	int array_of_toks;
 	instruction_t *instruct_ptr;
 } filedata_t;
