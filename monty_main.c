@@ -29,10 +29,15 @@ int main(int argc, char *argv[])
 	{
 		args->tracker += 1;
 		tokens_maker();
+		derive_instruction();
+		execute_command();
+		/* function for freeing tokens will be here */
 
-
-		printf("%s", args->currentLine);
 	}
+	if (args->filePointer == NULL)
+		return (0);
+	fclose(args->filePointer);
+	args->filePointer = NULL;
 
 	return (0);
 }

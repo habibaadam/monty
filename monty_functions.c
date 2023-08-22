@@ -106,3 +106,34 @@ void tokens_maker(void)
 	free(line_dup);
 }
 
+/**
+ * derive_instruction - function that matches or finds the first instruction
+ * based on the very first token obtained
+ */
+
+void derive_instruction(void)
+{
+	int m = 0;
+	instruction_t commands[] = {
+		{"push", &push_it}, {"pop", &pop_it},
+		{"pall", &pall_it}, {"pint", &pint_top},
+		{"swap", &swap_top}, {"add", &add_top_two},
+		{"nop", &nop_nothing},
+		{NULL, NULL}
+	};
+
+	if (args->array_of_toks == 0)
+		return;
+	while (commands[m].opcode != NULL)
+	{
+		if (strcmp(commands[m].opcode, args->toks[0]) == 0)
+		{
+			args->instruct_ptr->opcode = commands[m].opcode;
+			args->instruct_ptr->f = commands[m].f;
+			return;
+		}
+		m++;
+	}
+	nonexistent_command();
+}
+

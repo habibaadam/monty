@@ -71,6 +71,9 @@ void check_arguments(int argc);
 void init_arguments(void);
 void read_file(char *file);
 void tokens_maker(void);
+void derive_instruction(void);
+void execute_command(void);
+void nonexistent_command(void);
 
 /* ERROR HANDLERS */
 void malloc_error(void);

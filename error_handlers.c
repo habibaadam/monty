@@ -21,3 +21,22 @@ void readfile_error(char *file)
 	exit(EXIT_FAILURE);
 }
 
+
+/**
+ * nonexistent_command - prints error message when command is unknown
+ */
+void nonexistent_command(void)
+{
+	dprintf(2, "L%d: unknown instruction %s\n", args->tracker,
+			args->toks[0]);
+	if (args->filePointer == NULL)
+		return;
+
+	fclose(args->filePointer);
+	args->filePointer = NULL;
+
+	/* function for freeing tokens comes here */
+	/* function for freeing args here */
+	exit(EXIT_FAILURE);
+
+}
