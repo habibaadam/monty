@@ -1,6 +1,7 @@
 #ifndef MONTY_H
 #define MONTY_H
 #define _GNU_SOURCE
+#define TOK_DELIM "\n"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -64,13 +65,24 @@ typedef struct FileData
 } filedata_t;
 
 filedata_t *args;
+
 /* MONTY FUNCTIONS */
 void check_arguments(int argc);
 void init_arguments(void);
 void read_file(char *file);
+void tokens_maker(void);
 
 /* ERROR HANDLERS */
 void malloc_error(void);
 void readfile_error(char *file);
+
+/* STACK FUNCTIONS */
+void push_it(stack_t **stack, unsigned int tracker);
+void pall_it(stack_t **stack, unsigned int tracker);
+void pop_it(stack_t **stack, unsigned int tracker);
+void pint_top(stack_t **stack, unsigned int tracker);
+void swap_top(stack_t **stack, unsigned int tracker);
+void add_top_two(stack_t **stack, unsigned int tracker);
+void nop_nothing(stack_t **stack, unsigned int tracker);
 
 #endif /* MONTY_H */
