@@ -37,9 +37,14 @@ void init_arguments(void)
 
 	if (args == NULL)
 		malloc_error();
+	args->instruct_ptr = malloc(sizeof(instruction_t));
+	if (args->instruct_ptr == NULL)
+		malloc_error();
 
 	args->filePointer = NULL;
 	args->currentLine = NULL;
+	args->tracker = 0;
+	args->array_of_toks = 0;
 }
 
 /**
