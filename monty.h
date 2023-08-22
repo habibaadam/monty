@@ -1,10 +1,13 @@
 #ifndef MONTY_H
 #define MONTY_H
+#define _GNU_SOURCE
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <unistd.h>
-
+#include <ctype.h>
+#include <fcntl.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -21,7 +24,6 @@ typedef struct stack_s
 	struct stack_s *prev;
 	struct stack_s *next;
 } stack_t;
-
 
 /**
  * struct instruction_s - opcode and its function
@@ -47,14 +49,21 @@ typedef struct instruction_s
  * It is designed to manage reading lines from a file and storing their
  * associated data.
  */
-struct FileData
+
+typedef struct FileData
 {
 	FILE *filePointer;
 	char *currentLine;
 } filedata_t;
 
-extern filedata_t args;
-void arguments(int argc);
-void intli_arguments(void);
-void malloc_failed(void);
+filedata_t *args;
+/* MONTY FUNCTIONS */
+void check_arguments(int argc);
+void init_arguments(void);
+void read_file(char *file);
+
+/* ERROR HANDLERS */
+void malloc_error(void);
+void readfile_error(char *file);
+
 #endif /* MONTY_H */

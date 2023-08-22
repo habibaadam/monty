@@ -14,11 +14,21 @@
  * @argv: An array of strings containing the command-line arguments.
  * Return: The exit status of the program.
  */
+
 int main(int argc, char *argv[])
 {
-	(void)argv;
+	size_t m = 0;
+	ssize_t read_args;
 
-	arguments(argc);
+	check_arguments(argc);
+	init_arguments();
+	read_file(argv[1]);
+
+	while ((read_args = getline(&args->currentLine, &m, args->filePointer))
+			!= -1)
+	{
+		printf("%s", args->currentLine);
+	}
 
 	return (0);
 }
