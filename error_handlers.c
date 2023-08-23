@@ -35,8 +35,7 @@ void nonexistent_command(void)
 	fclose(args->filePointer);
 	args->filePointer = NULL;
 
-	/* function for freeing tokens comes here */
-	/* function for freeing args here */
+	free_resources();
 	exit(EXIT_FAILURE);
 
 }
