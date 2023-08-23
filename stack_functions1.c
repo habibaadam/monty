@@ -17,7 +17,7 @@ void swap_top(stack_t **stack, unsigned int tracker)
 	if (args->element_count < 2)
 	{
 		dprintf(2, "L%d: can't swap, stack too short\n", tracker);
-		free_args();
+		free_resources();
 		exit(EXIT_FAILURE);
 	}
 
