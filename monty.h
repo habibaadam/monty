@@ -56,12 +56,14 @@ typedef struct instruction_s
 
 typedef struct FileData
 {
-	FILE *filePointer;
-	char *currentLine;
-	unsigned int tracker;
-	char **toks;
-	int array_of_toks;
-	instruction_t *instruct_ptr;
+	 FILE *filePointer;
+    char *currentLine;
+    unsigned int tracker;
+    char **toks;
+    int array_of_toks;
+    instruction_t *instruct_ptr;
+    stack_t *head;
+    unsigned int stack_length;
 } filedata_t;
 
 filedata_t *args;
@@ -76,6 +78,7 @@ void execute_command(void);
 void nonexistent_command(void);
 void free_resources(void);
 void free_head(stack_t *stack);
+int is_number(char *str);
 
 /* ERROR HANDLERS */
 void malloc_error(void);
@@ -91,3 +94,5 @@ void add_top_two(stack_t **stack, unsigned int tracker);
 void nop_nothing(stack_t **stack, unsigned int tracker);
 
 #endif /* MONTY_H */
+
+
