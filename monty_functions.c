@@ -123,7 +123,11 @@ void derive_instruction(void)
 	instruction_t commands[] = {
 		{"push", &push_it}, {"pall", &pall_it},
 		{"pint", &pint_top}, {"nop", &nop_nothing},
+<<<<<<< HEAD
+		{"pop", pop_it},
+=======
 		{"swap", &swap_top},
+>>>>>>> 822c478ded14cd1f725187c8300896e1ebdf5ad0
 		{NULL, NULL}
 	};
 

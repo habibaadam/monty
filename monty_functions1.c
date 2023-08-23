@@ -43,4 +43,3 @@ int is_valid_integer(const char *str)
 
 	return (1);
 }
-
