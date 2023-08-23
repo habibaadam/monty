@@ -6,7 +6,6 @@ void pop_it(stack_t **stack, unsigned int tracker);
 void nop_nothing(stack_t **stack, unsigned int tracker);
 void pint_top(stack_t **stack, unsigned int tracker);
 
-
 /**
  * pall_it - function that prints all elements in the stack
  * @stack: pointer to the stack

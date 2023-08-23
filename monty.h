@@ -48,7 +48,7 @@ typedef struct instruction_s
  * @toks: Stores words from the file read.
  * @array_of_toks: Allocates memory for an array of tokens.
  * @instruct_ptr:Pointer to struct responsible for opcodes and their functions.
- * @stack_head: Pointer to the head of our doubly linked list's stack.
+ * @head: Pointer to the head of our doubly linked list's stack.
  * @element_count: Number of elements in the stack.
  *
  * This structure encapsulates information related to a file, including
@@ -79,15 +79,14 @@ void tokens_maker(void);
 void derive_instruction(void);
 void execute_command(void);
 void nonexistent_command(void);
+int is_valid_integer(const char *str);
 
 /* FREEING MEMORY */
 void free_resources(void);
-void free_args();
+void free_args(void);
 void free_stack(stack_t *head);
-void free_h();
+void free_h(void);
 void free_toks(void);
-
-int is_valid_integer(const char *str);
 
 /* ERROR HANDLERS */
 void malloc_error(void);
