@@ -38,10 +38,10 @@ void free_args(void)
 
 	free_h();
 
-	if (args->filePointer)
+	if (args->currentLine)
 	{
-		free(args->filePointer);
-		args->filePointer = NULL;
+		free(args->currentLine);
+		args->currentLine = NULL;
 	}
 	free(args);
 }
