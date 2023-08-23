@@ -74,6 +74,7 @@ void tokens_maker(void);
 void derive_instruction(void);
 void execute_command(void);
 void nonexistent_command(void);
+void free_resources(void);
 
 /* ERROR HANDLERS */
 void malloc_error(void);

@@ -13,8 +13,8 @@
  * @argc: The number of command-line arguments.
  * @argv: An array of strings containing the command-line arguments.
  * Return: The exit status of the program.
+ *
  */
-
 int main(int argc, char *argv[])
 {
 	size_t m = 0;
@@ -24,16 +24,21 @@ int main(int argc, char *argv[])
 	init_arguments();
 	read_file(argv[1]);
 
-	while ((read_args = getline(&args->currentLine, &m, args->filePointer))
-			!= -1)
+	while ((read_args = getline(&args->currentLine, &m,
+					args->filePointer)) != -1)
 	{
 		args->tracker += 1;
 		tokens_maker();
 		derive_instruction();
 
 	}
+		execute_command();
+	}
 
+	/* Free allocated resources before exiting */
+	free_resources();
 
 	return (0);
 }
+
 
