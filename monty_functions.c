@@ -88,6 +88,7 @@ void tokens_maker(void)
 	while (token != NULL)
 	{
 		args->array_of_toks += 1;
+		/*printf("Token %d: %s\n", h, token);*/
 		token = strtok(NULL, TOK_DELIM);
 	}
 
@@ -95,12 +96,15 @@ void tokens_maker(void)
 	strcpy(line_dup, args->currentLine);
 	token = strtok(line_dup, TOK_DELIM);
 
+	/*h = 0; */
+
 	while (token != NULL)
 	{
 		args->toks[h] = malloc(sizeof(char) * (strlen(token) + 1));
 		if (args->toks[h] == NULL)
 			malloc_error();
 		strcpy(args->toks[h], token);
+		/*printf("Token %d: %s\n", h, args->toks[h]);*/
 		token = strtok(NULL, TOK_DELIM);
 		h++;
 	}
@@ -131,7 +135,7 @@ void derive_instruction(void)
 		return;
 	}
 
-	while (commands[m].opcode != NULL)
+	for (; commands[m].opcode != NULL; m++)
 	{
 		if (strcmp(commands[m].opcode, args->toks[0]) == 0)
 		{
@@ -139,7 +143,6 @@ void derive_instruction(void)
 			args->instruct_ptr->f = commands[m].f;
 			return;
 		}
-		m++;
 	}
 	nonexistent_command();
 }

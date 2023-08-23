@@ -1,7 +1,7 @@
 #ifndef MONTY_H
 #define MONTY_H
 #define _GNU_SOURCE
-#define TOK_DELIM "\n"
+#define TOK_DELIM " \n"
 
 #include <stdio.h>
 #include <stdlib.h>

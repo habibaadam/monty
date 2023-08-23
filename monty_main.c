@@ -22,6 +22,8 @@ int main(int argc, char *argv[])
 
 	check_arguments(argc);
 	init_arguments();
+
+	/*printf("Input file: %s\n", argv[1]);*/
 	read_file(argv[1]);
 
 	while ((read_args = getline(&args->currentLine, &m,
