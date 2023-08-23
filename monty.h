@@ -66,8 +66,8 @@ typedef struct FileData
 	char **toks;
 	int array_of_toks;
 	instruction_t *instruct_ptr;
-	stack_t *head;
-	unsigned int stack_length;
+	stack_t *stack_head;
+	unsigned int element_count;
 } filedata_t;
 
 filedata_t *args;

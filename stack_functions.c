@@ -17,13 +17,13 @@ void pall_it(stack_t **stack, unsigned int tracker)
 {
 	stack_t *fornow;
 
-	if (args->head == NULL)
+	if (args->stack_head == NULL)
 		return;
 
 	(void) tracker;
 	(void) stack;
 
-	fornow = args->head;
+	fornow = args->stack_head;
 	while (fornow != NULL)
 	{
 		printf("%d\n ", fornow->n);
@@ -52,13 +52,13 @@ void pint_top(stack_t **stack, unsigned int tracker)
 {
 	(void) stack;
 
-	if (args->head == NULL)
+	if (args->stack_head == NULL)
 	{
 		dprintf(2, "L%d: can't pint, stack empty\n", tracker);
 		free_resources();
 		exit(EXIT_FAILURE);
 	}
-	printf("%d\n", args->head->n);
+	printf("%d\n", args->stack_head->n);
 }
 
 #include "monty.h"
@@ -92,12 +92,12 @@ void push_it(stack_t **stack, unsigned int tracker)
 
 	(*stack)->n = atoi(args->toks[1]);
 
-	if (args->head != NULL)
+	if (args->stack_head != NULL)
 	{
-		(*stack)->next = args->head;
-		args->head->prev = *stack;
+		(*stack)->next = args->stack_head;
+		args->stack_head->prev = *stack;
 	}
 
-	args->head = *stack;
-	args->stack_length += 1;
+	args->stack_head = *stack;
+	args->element_count += 1;
 }
