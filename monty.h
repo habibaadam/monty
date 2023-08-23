@@ -79,18 +79,15 @@ void tokens_maker(void);
 void derive_instruction(void);
 void execute_command(void);
 void nonexistent_command(void);
-<<<<<<< HEAD
-void pop_stack_node(void);
-=======
 int is_valid_integer(const char *str);
 
->>>>>>> 822c478ded14cd1f725187c8300896e1ebdf5ad0
 /* FREEING MEMORY */
 void free_resources(void);
 void free_args(void);
 void free_stack(stack_t *head);
 void free_h(void);
 void free_toks(void);
+void pop_stack_node(void);
 
 /* ERROR HANDLERS */
 void malloc_error(void);

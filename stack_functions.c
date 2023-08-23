@@ -114,12 +114,17 @@ void push_it(stack_t **stack, unsigned int tracker)
  */
 void pop_it(stack_t **stack, unsigned int tracker)
 {
+	(void) stack;
 
-    if (*stack == NULL)
-    {
-        fprintf(stderr, "L%d: can't pop an empty stack\n", tracker);
-        exit(EXIT_FAILURE);
-    }
+	if (args->head == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", tracker);
+		free_resources();
+		exit(EXIT_FAILURE);
+	}
+
+	pop_stack_node();
+	args->element_count -= 1;
 
 }
 

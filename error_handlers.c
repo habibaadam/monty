@@ -42,15 +42,15 @@ void nonexistent_command(void)
 }
 /**
  * pop_stack_node - Removes the top node from the stack
- *
- * This function removes the top node from the stack by updating the head pointer.
  * It then frees the memory of the removed node.
  */
 void pop_stack_node(void)
 {
-	stack_t *tmp;    /* Temporary pointer to hold the top node*/
-	tmp = args->head;    /* Store the current head node*/
-	args->head = tmp->next; /*Update the head to the next node*/
-	free(tmp);               /* Free the memory of the removed node*/
-}
+	stack_t *fornow;
+	/* Temporary pointer to hold the top node*/
 
+	fornow = args->head;    /* Store the current head node*/
+
+	args->head = fornow->next; /*Update the head to the next node*/
+	free(fornow);               /* Free the memory of the removed node*/
+}
