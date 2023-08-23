@@ -33,6 +33,7 @@ int main(int argc, char *argv[])
 		tokens_maker();
 		derive_instruction();
 		execute_command();
+		free_toks();
 	}
 	/* closing link to file */
 
@@ -42,7 +43,7 @@ int main(int argc, char *argv[])
 	args->filePointer = NULL;
 
 	/* Free allocated resources before exiting */
-	free_resources();
+	free_args();
 
 	return (0);
 }

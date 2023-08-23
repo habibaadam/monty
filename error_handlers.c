@@ -35,7 +35,8 @@ void nonexistent_command(void)
 	fclose(args->filePointer);
 	args->filePointer = NULL;
 
-	free_resources();
+	free_toks();
+	free_args();
 	exit(EXIT_FAILURE);
 
 }

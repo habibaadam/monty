@@ -26,7 +26,7 @@ void pall_it(stack_t **stack, unsigned int tracker)
 	fornow = args->head;
 	while (fornow != NULL)
 	{
-		printf("%d\n ", fornow->n);
+		printf("%d\n", fornow->n);
 		fornow = fornow->next;
 	}
 }
@@ -80,14 +80,18 @@ void push_it(stack_t **stack, unsigned int tracker)
 {
 	if (args->array_of_toks <= 1 || !is_valid_integer(args->toks[1]))
 	{
-		free_resources();
+		free_args();
 		dprintf(2, "L%d: usage : push integer\n", tracker);
 		exit(EXIT_FAILURE);
 	}
 
 	*stack = malloc(sizeof(stack_t));
 	if (*stack == NULL)
+	{
 		malloc_error();
+		free_resources();
+	}
+
 	(*stack)->next = (*stack)->prev = NULL;
 
 	(*stack)->n = atoi(args->toks[1]);

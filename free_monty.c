@@ -4,45 +4,81 @@
  */
 void free_resources(void)
 {
-	int i;
-
 	if (args->filePointer != NULL)
 		fclose(args->filePointer);
 
-	if (args->currentLine != NULL)
-		free(args->currentLine);
-
-	if (args->toks != NULL)
-	{
-		for (i = 0; i < args->array_of_toks; i++)
-		{
-			if (args->toks[i] != NULL)
-				free(args->toks[i]);
-		}
-		free(args->toks);
-	}
-
-	if (args->instruct_ptr != NULL)
-		free(args->instruct_ptr);
-
-	if (args != NULL)
-		free(args);
+	free_toks();
+	free_args();
 }
 
 /**
- * free_stack - a function that frees head of a stack
- * @stack: pointer to head of stack
+ * free_h - function that frees memory for the head of linked list
  */
-
-void free_stack(stack_t *stack)
+void free_h(void)
 {
-	stack_t *fornow = stack;
+	if (args->head)
+		free_stack(args->head);
 
-	while (fornow != NULL)
-	{
-		fornow = stack->next;
-		free(stack);
-		stack = fornow;
-	}
+	args->head = NULL;
 }
 
+/**
+ * free_args - function that frees memory given to args
+ */
+
+void free_args(void)
+{
+	if (args == NULL)
+		return;
+	if (args->instruct_ptr)
+	{
+		free(args->instruct_ptr);
+		args->instruct_ptr = NULL;
+	}
+
+	free_h();
+
+	if (args->filePointer)
+	{
+		free(args->filePointer);
+		args->filePointer = NULL;
+	}
+	free(args);
+}
+
+/**
+ * free_stack - a function that frees nodes of a stack
+ * @head: pointer to head of stack
+ */
+
+void free_stack(stack_t *head)
+{
+	if (head == NULL)
+		return;
+
+	if (head->next != NULL)
+	{
+		free_stack(head->next);
+	}
+
+	free(head);
+}
+
+/**
+ * free_toks - frees the memory allocated for tokens only
+ */
+void free_toks(void)
+{
+	int h = 0;
+
+	if (args->toks == NULL)
+		return;
+
+	while (args->toks[h])
+	{
+		free(args->toks[h]);
+		h++;
+	}
+	free(args->toks);
+	args->toks = NULL;
+}
