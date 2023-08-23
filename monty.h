@@ -79,7 +79,7 @@ void tokens_maker(void);
 void derive_instruction(void);
 void execute_command(void);
 void nonexistent_command(void);
-
+void pop_stack_node(void);
 /* FREEING MEMORY */
 void free_resources(void);
 void free_args();

@@ -40,3 +40,17 @@ void nonexistent_command(void)
 	exit(EXIT_FAILURE);
 
 }
+/**
+ * pop_stack_node - Removes the top node from the stack
+ *
+ * This function removes the top node from the stack by updating the head pointer.
+ * It then frees the memory of the removed node.
+ */
+void pop_stack_node(void)
+{
+	stack_t *tmp;    /* Temporary pointer to hold the top node*/
+	tmp = args->head;    /* Store the current head node*/
+	args->head = tmp->next; /*Update the head to the next node*/
+	free(tmp);               /* Free the memory of the removed node*/
+}
+

@@ -105,3 +105,22 @@ void push_it(stack_t **stack, unsigned int tracker)
 	args->head = *stack;
 	args->element_count += 1;
 }
+/**
+ * pop_it - Removes the top element from the stack
+ * @stack: Pointer to a pointer to the stack
+ * @tracker: Line number tracker for error reporting
+ *
+ * This function removes the top element from the stack and updates the stack.
+ * If the stack is empty, it prints an error message and exits.
+ */
+void pop_it(stack_t **stack, unsigned int tracker)
+{
+
+    if (*stack == NULL)
+    {
+        fprintf(stderr, "L%d: can't pop an empty stack\n", tracker);
+        exit(EXIT_FAILURE);
+    }
+
+}
+
