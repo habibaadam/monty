@@ -78,7 +78,7 @@ void pint_top(stack_t **stack, unsigned int tracker)
  */
 void push_it(stack_t **stack, unsigned int tracker)
 {
-	if (args->array_of_toks <= 1 || !is_number(args->toks[1]))
+	if (args->array_of_toks <= 1 || !is_valid_integer(args->toks[1]))
 	{
 		free_resources();
 		dprintf(2, "L%d: usage : push integer\n", tracker);

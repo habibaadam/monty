@@ -78,7 +78,7 @@ void execute_command(void);
 void nonexistent_command(void);
 void free_resources(void);
 void free_head(stack_t *stack);
-int is_number(char *s);
+int is_valid_integer(const char *str);
 
 /* ERROR HANDLERS */
 void malloc_error(void);
