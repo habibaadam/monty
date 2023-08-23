@@ -45,7 +45,7 @@ void init_arguments(void)
 	args->currentLine = NULL;
 	args->tracker = 0;
 	args->array_of_toks = 0;
-	args->stack_head = NULL;
+	args->head = NULL;
 	args->element_count = 0;
 }
 
