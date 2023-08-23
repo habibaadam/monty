@@ -115,10 +115,8 @@ void derive_instruction(void)
 {
 	int m = 0;
 	instruction_t commands[] = {
-		{"push", &push_it}, {"pop", &pop_it},
-		{"pall", &pall_it}, {"pint", &pint_top},
-		{"swap", &swap_top}, {"add", &add_top_two},
-		{"nop", &nop_nothing},
+		{"push", &push_it}, {"pall", &pall_it},
+		{"pint", &pint_top}, {"nop", &nop_nothing},
 		{NULL, NULL}
 	};
 
