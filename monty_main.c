@@ -30,10 +30,14 @@ int main(int argc, char *argv[])
 		args->tracker += 1;
 		tokens_maker();
 		derive_instruction();
-
-	}
 		execute_command();
 	}
+	/* closing link to file */
+
+	if (args->filePointer == NULL)
+		return (0);
+	fclose(args->filePointer);
+	args->filePointer = NULL;
 
 	/* Free allocated resources before exiting */
 	free_resources();

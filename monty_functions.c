@@ -124,6 +124,13 @@ void derive_instruction(void)
 
 	if (args->array_of_toks == 0)
 		return;
+	if (args->toks[0][0] == '#')
+	{
+		args->instruct_ptr->opcode = "nop";
+		args->instruct_ptr->f = nop_nothing;
+		return;
+	}
+
 	while (commands[m].opcode != NULL)
 	{
 		if (strcmp(commands[m].opcode, args->toks[0]) == 0)

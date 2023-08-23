@@ -75,6 +75,7 @@ void derive_instruction(void);
 void execute_command(void);
 void nonexistent_command(void);
 void free_resources(void);
+void free_head(stack_t *stack);
 
 /* ERROR HANDLERS */
 void malloc_error(void);
@@ -82,7 +83,7 @@ void readfile_error(char *file);
 
 /* STACK FUNCTIONS */
 void push_it(stack_t **stack, unsigned int tracker);
-void pall_it(stack_t **stack, unsigned int tracker);
+void pall_it(stack_t **stack, unsigned int tracker) __attribute__((unused));
 void pop_it(stack_t **stack, unsigned int tracker);
 void pint_top(stack_t **stack, unsigned int tracker);
 void swap_top(stack_t **stack, unsigned int tracker);

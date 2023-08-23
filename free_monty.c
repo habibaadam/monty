@@ -29,3 +29,20 @@ void free_resources(void)
 		free(args);
 }
 
+/**
+ * free_stack - a function that frees head of a stack
+ * @stack: pointer to head of stack
+ */
+
+void free_stack(stack_t *stack)
+{
+	stack_t *fornow = stack;
+
+	while (fornow != NULL)
+	{
+		fornow = stack->next;
+		free(stack);
+		stack = fornow;
+	}
+}
+
