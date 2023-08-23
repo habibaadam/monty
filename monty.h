@@ -44,13 +44,12 @@ typedef struct instruction_s
  * struct FileData - Represents data related to a file.
  * @filePointer: Pointer to the file stream (FILE *).
  * @currentLine: Pointer to the current line data (char *).
- * @tracker: keeps track of lines read
- * @toks: stores words from file read
- * @array_of_toks: allocates memory for array of tokens
- * @instruct_ptr: pointer to the struct rsponsible for opcodes and its
- * function
- * @head: pointer to the head of our doubly linked list's head
- * @stack_length: length of the stack
+ * @tracker: Keeps track of lines read.
+ * @toks: Stores words from the file read.
+ * @array_of_toks: Allocates memory for an array of tokens.
+ * @instruct_ptr:Pointer to struct responsible for opcodes and their functions.
+ * @stack_head: Pointer to the head of our doubly linked list's stack.
+ * @element_count: Number of elements in the stack.
  *
  * This structure encapsulates information related to a file, including
  * a file stream and the current line data read from that stream.

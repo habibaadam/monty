@@ -22,21 +22,25 @@ void execute_command(void)
  */
 int is_valid_integer(const char *str)
 {
-    if (str == NULL || *str == '\0') {
-        return (0);
-    }
+	if (str == NULL || *str == '\0')
+	{
+		return (0);
+	}
 
-    if (*str == '-') {
-        str++;
-    }
+	if (*str == '-')
+	{
+		str++;
+	}
 
-    while (*str != '\0') {
-        if (*str < '0' || *str > '9') {
-            return (0);
-        }
-        str++;
-    }
+	while (*str != '\0')
+	{
+		if (*str < '0' || *str > '9')
+		{
+			return (0);
+		}
+		str++;
+	}
 
-    return (1);
+	return (1);
 }
 
