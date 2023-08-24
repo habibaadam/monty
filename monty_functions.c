@@ -125,7 +125,7 @@ void derive_instruction(void)
 		{"pint", &pint_top}, {"nop", &nop_nothing},
 		{"pop", &pop_it}, {"swap", &swap_top},
 		{"add", &add_top_two}, {"sub", &sub_it},
-		{"div", &div_op},
+		{"div", &div_op}, {"mul", &mul_op},
 		{NULL, NULL}
 	};
 

@@ -3,6 +3,7 @@ void sub_it(stack_t **stack, unsigned int tracker);
 void swap_top(stack_t **stack, unsigned int tracker);
 void add_top_two(stack_t **stack, unsigned int tracker);
 void div_op(stack_t **stack, unsigned int tracker);
+void mul_op(stack_t **stack, unsigned int tracker);
 /**
  * swap_top - swaps the first two elements in a stack
  * @stack: pointer to the head of the stack
@@ -127,3 +128,33 @@ void div_op(stack_t **stack, unsigned int tracker)
 
 	args->element_count -= 1;
 }
+/**
+ * mul_op - Multiplies the second top element with the top element of the stack
+ * @stack: Double pointer to the top of the stack
+ * @tracker: Tracker value for error reporting
+ *
+ * function multiplies the value of the second top element with the top element
+ * of the stack. It also handles error cases when the stack is too short.
+ */
+void mul_op(stack_t **stack, unsigned int tracker)
+{
+	stack_t *first_top, *second_top;
+
+	(void) stack;
+
+	if (args->element_count < 2)
+	{
+		dprintf(2, "L%d: can't mul, stack too short\n", tracker);
+		free_resources();
+		exit(EXIT_FAILURE);
+	}
+
+	first_top = args->head;
+	second_top = first_top->next;
+
+	second_top->n = second_top->n * first_top->n;
+	pop_stack_node();
+
+	args->element_count -= 1;
+}
+
