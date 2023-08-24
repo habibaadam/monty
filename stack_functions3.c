@@ -2,6 +2,7 @@
 
 void mod_op(stack_t **stack, unsigned int tracker);
 void print_top_char(stack_t **stack, unsigned int tracker);
+void print_top_str(stack_t **stack, unsigned int tracker);
 
 /**
  * mod_op - Computes the remainder of division of the second top element
@@ -71,5 +72,26 @@ void print_top_char(stack_t **stack, unsigned int tracker)
 	printf("%c\n", first_top->n);
 }
 
+/**
+ * print_top_str - prints the string of the top stack, in accordance with ascii
+ * values, followed by a new line
+ * @stack: pointer to the head of the stack
+ * @tracker: point at which the function is called
+ */
+void print_top_str(stack_t **stack, unsigned int tracker)
+{
+	stack_t *first_top;
 
+	(void) stack;
+	(void) tracker;
 
+	first_top = args->head;
+
+	while (first_top != NULL && first_top->n != 0 && isascii(first_top->n))
+	{
+		printf("%c", first_top->n);
+		first_top = first_top->next;
+	}
+	printf("\n");
+
+}

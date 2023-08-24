@@ -127,6 +127,7 @@ void derive_instruction(void)
 		{"add", &add_top_two}, {"sub", &sub_it},
 		{"div", &div_op}, {"mul", &mul_op},
 		{"mod", &mod_op}, {"pchar", &print_top_char},
+		{"pstr", &print_top_str},
 		{NULL, NULL}
 	};
 
