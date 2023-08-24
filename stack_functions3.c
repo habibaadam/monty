@@ -1,6 +1,7 @@
 #include "monty.h"
 
 void mod_op(stack_t **stack, unsigned int tracker);
+void print_top_char(stack_t **stack, unsigned int tracker);
 
 /**
  * mod_op - Computes the remainder of division of the second top element
@@ -40,4 +41,35 @@ void mod_op(stack_t **stack, unsigned int tracker)
 
 	args->element_count -= 1;
 }
+
+/**
+ * print_top_char - a function that prints the character at the top of a stack
+ * as long as it is not out of the range of ascii values
+ * @stack: pointer to the head of the stack
+ * @tracker: position where the function is called
+ */
+
+void print_top_char(stack_t **stack, unsigned int tracker)
+{
+	stack_t *first_top;
+
+	(void) stack;
+	/* If the stack is empty, print the error message and exit */
+	if (args->head == NULL)
+	{
+		dprintf(2, "L%d: can't pchar, stack empty\n", tracker);
+		free_resources();
+		exit(EXIT_FAILURE);
+	}
+	first_top = args->head;
+	/* If the value is not in the ascii table, print the error message */
+	if (first_top->n < 0 || first_top->n > 127)
+	{
+		dprintf(2, "L%d: can't pchar, value out of range\n", tracker);
+		exit(EXIT_FAILURE);
+	}
+	printf("%c\n", first_top->n);
+}
+
+
 
