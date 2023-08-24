@@ -87,7 +87,6 @@ void free_args(void);
 void free_stack(stack_t *head);
 void free_h(void);
 void free_toks(void);
-void pop_stack_node(void);
 
 /* ERROR HANDLERS */
 void malloc_error(void);
@@ -95,16 +94,21 @@ void readfile_error(char *file);
 
 /* STACK FUNCTIONS */
 void push_it(stack_t **stack, unsigned int tracker);
+void pop_stack_node(void);
 void pall_it(stack_t **stack, unsigned int tracker) __attribute__((unused));
 void pop_it(stack_t **stack, unsigned int tracker);
 void pint_top(stack_t **stack, unsigned int tracker);
+
 void swap_top(stack_t **stack, unsigned int tracker);
 void add_top_two(stack_t **stack, unsigned int tracker);
 void nop_nothing(stack_t **stack, unsigned int tracker);
 void div_op(stack_t **stack, unsigned int tracker);
 void sub_it(stack_t **stack, unsigned int tracker);
+
 void mul_op(stack_t **stack, unsigned int tracker);
 void mod_op(stack_t **stack, unsigned int tracker);
+void print_top_char(stack_t **stack, unsigned int tracker);
+
 #endif /* MONTY_H */
 
 
