@@ -104,6 +104,7 @@ void nop_nothing(stack_t **stack, unsigned int tracker);
 void div_op(stack_t **stack, unsigned int tracker);
 void sub_it(stack_t **stack, unsigned int tracker);
 void mul_op(stack_t **stack, unsigned int tracker);
+void mod_op(stack_t **stack, unsigned int tracker);
 #endif /* MONTY_H */
 
 
