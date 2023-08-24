@@ -106,27 +106,25 @@ void print_top_str(stack_t **stack, unsigned int tracker)
 
 void rotate_top_stack(stack_t **stack, unsigned int tracker)
 {
-	stack_t *first_node, *second_node;
+	stack_t *first_node = args->head, *last_node;
 
 	(void) stack;
 	(void) tracker;
 
-	if (args->element_count > 2)
+	if (args->head == NULL || args->head->next == NULL)
 		return;
 
-	first_node = args->head;
-	second_node = first_node->next;
-	args->head = second_node;
+	last_node = args->head->next;
+	last_node->prev = NULL;
 
-	while (second_node != NULL)
+	while (first_node->next != NULL)
 	{
-		if (second_node->next == NULL)
-		{
-			second_node->next = first_node;
-			first_node->next = NULL;
-			first_node->prev = second_node;
-			break;
-		}
-		second_node = second_node->next;
+		first_node = first_node->next;
 	}
+	first_node->next = args->head;
+	args->head->next = NULL;
+	args->head->prev = first_node;
+	args->head = last_node;
 }
+
+
