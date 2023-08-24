@@ -101,6 +101,7 @@ void pint_top(stack_t **stack, unsigned int tracker);
 void swap_top(stack_t **stack, unsigned int tracker);
 void add_top_two(stack_t **stack, unsigned int tracker);
 void nop_nothing(stack_t **stack, unsigned int tracker);
+void div_op(stack_t **stack, unsigned int tracker);
 void sub_it(stack_t **stack, unsigned int tracker);
 #endif /* MONTY_H */
 
