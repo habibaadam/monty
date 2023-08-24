@@ -59,28 +59,20 @@ void pint_top(stack_t **stack, unsigned int tracker)
 	}
 	printf("%d\n", args->head->n);
 }
-
-#include "monty.h"
 /**
- * push_it - Pushes an element onto the stack.
- * @stack: Pointer to the top of the stack.
- * @tracker: Current line number being processed.
+ * push_it - Pushes an integer onto the stack or queue
+ * @stack: Double pointer to the top of the stack/queue
+ * @tracker: Position at which this function is called within the file
  *
- * This function pushes a new element onto the stack.
- * If there are not enough tokens or the second token is not an integer,
- * it frees resources, prints an error message, and exits with FAILURE.
- * It then allocates memory for a new stack element, assigns the value,
- * and updates the stack pointers accordingly.
- *
- * @stack: Pointer to the top of the stack.
- * @tracker: Current line number being processed.
+ *function pushes an integer onto the stack or queue based on behavior defined.
+ *handles error cases and performs necessary memory allocation and assignments.
  */
 void push_it(stack_t **stack, unsigned int tracker)
 {
 	if (args->array_of_toks <= 1 || !is_valid_integer(args->toks[1]))
 	{
 		free_args();
-		dprintf(2, "L%d: usage : push integer\n", tracker);
+		dprintf(2, "L%d: usage: push integer\n", tracker);
 		exit(EXIT_FAILURE);
 	}
 
@@ -95,15 +87,39 @@ void push_it(stack_t **stack, unsigned int tracker)
 
 	(*stack)->n = atoi(args->toks[1]);
 
-	if (args->head != NULL)
+	if (args->stack)
 	{
-		(*stack)->next = args->head;
-		args->head->prev = *stack;
+		if (args->head == NULL)
+		{
+			args->head = *stack;
+		}
+		else
+		{
+			(*stack)->next = args->head;
+			args->head->prev = *stack;
+			args->head = *stack;
+		}
 	}
+	else
+	{
+		if (args->head == NULL)
+		{
+			args->head = *stack;
+		}
+		else
+		{
+			stack_t *first_node = args->head;
 
-	args->head = *stack;
+			while (first_node->next)
+				first_node = first_node->next;
+
+			first_node->next = *stack;
+			(*stack)->prev = first_node;
+		}
+	}
 	args->element_count += 1;
 }
+
 /**
  * pop_it - Removes the top element from the stack
  * @stack: Pointer to a pointer to the stack

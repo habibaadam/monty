@@ -47,6 +47,7 @@ void init_arguments(void)
 	args->array_of_toks = 0;
 	args->head = NULL;
 	args->element_count = 0;
+	args->stack = 1;
 }
 
 /**
@@ -128,7 +129,8 @@ void derive_instruction(void)
 		{"div", &div_op}, {"mul", &mul_op},
 		{"mod", &mod_op}, {"pchar", &print_top_char},
 		{"pstr", &print_top_str}, {"rotl", &rotate_top_stack},
-		{"rotr", &rotate_bottom_stack},
+		{"rotr", &rotate_bottom_stack}, {"queue", &queue},
+		 {"stack", &stack},
 		{NULL, NULL}
 	};
 

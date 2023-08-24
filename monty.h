@@ -67,6 +67,7 @@ typedef struct FileData
 	instruction_t *instruct_ptr;
 	stack_t *head;
 	unsigned int element_count;
+	int stack;
 } filedata_t;
 
 filedata_t *args;
@@ -111,6 +112,9 @@ void print_top_char(stack_t **stack, unsigned int tracker);
 void print_top_str(stack_t **stack, unsigned int tracker);
 void rotate_top_stack(stack_t **stack, unsigned int tracker);
 void rotate_bottom_stack(stack_t **stack, unsigned int tracker);
+
+void queue(stack_t **stack, unsigned int tracker);
+void stack(stack_t **stack, unsigned int tracker);
 #endif /* MONTY_H */
 
 
