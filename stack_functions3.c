@@ -126,7 +126,6 @@ void rotate_top_stack(stack_t **stack, unsigned int tracker)
 	args->head->prev = first_node;
 	args->head = last_node;
 }
-<<<<<<< HEAD
 /**
  * rotr_op - Rotates the stack to the bottom
  * @stack: Double pointer to the top of the stack
@@ -157,7 +156,4 @@ void rotr_op(stack_t **stack, unsigned int tracker)
 
 	*stack = last;
 }
-=======
-
->>>>>>> 49127f6e794be40c3c52c85fc3436fd409d90557
 
