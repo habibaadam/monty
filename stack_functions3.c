@@ -4,7 +4,7 @@ void mod_op(stack_t **stack, unsigned int tracker);
 void print_top_char(stack_t **stack, unsigned int tracker);
 void print_top_str(stack_t **stack, unsigned int tracker);
 void rotate_top_stack(stack_t **stack, unsigned int tracker);
-void rotr_op(stack_t **stack, unsigned int tracker);
+void rotate_bottom_stack(stack_t **stack, unsigned int tracker);
 /**
  * mod_op - Computes the remainder of division of the second top element
  *          by the top element of the stack
@@ -127,34 +127,36 @@ void rotate_top_stack(stack_t **stack, unsigned int tracker)
 	args->head = last_node;
 }
 /**
- * rotr_op - Rotates the stack to the bottom
- * @stack: Double pointer to the top of the stack
- * @tracker: Tracker value for error reporting
+ * rotate_bottom_stack - Rotates the stack from the top to the bottom
+ * @stack: Double pointer to the head of the stack
+ * @tracker: Position at which this function is called within the file
  *
- * This function rotates the stack so that the last element becomes the top element.
- * The rotation operation is performed without failure.
+ *function rotates the stack by moving top element to the bottom of the stack.
+ *ensures the rotation never fails and handles edge cases where stack is empty
+ * or has only one element.
  */
-void rotr_op(stack_t **stack, unsigned int tracker)
+void rotate_bottom_stack(stack_t **stack, unsigned int tracker)
 {
-	stack_t *last, *second_last;
+	stack_t *last_node = args->head, *second_last_node;
 
 	(void) stack;
 	(void) tracker;
 
-	if (args->element_count < 2 || !(*stack) || !(*stack)->next)
+	if (args->head == NULL || args->head->next == NULL)
 		return;
 
-	last = *stack;
-	while (last->next)
-		last = last->next;
+	while (last_node->next != NULL)
+		last_node = last_node->next;
 
-	second_last = last->prev;
+	second_last_node = last_node->prev;
 
-	last->prev = NULL;
-	last->next = *stack;
-	(*stack)->prev = last;
-	second_last->next = NULL;
+	last_node->prev = args->head;
+	last_node->next = args->head->next;
+	args->head->next->prev = last_node;
+	args->head->next = last_node;
+	second_last_node->next = NULL;
 
-	*stack = last;
+	args->head = args->head->next;
 }
+
 
