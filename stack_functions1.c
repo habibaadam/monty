@@ -1,5 +1,5 @@
 #include "monty.h"
-
+void sub_it(stack_t **stack, unsigned int tracker);
 void swap_top(stack_t **stack, unsigned int tracker);
 void add_top_two(stack_t **stack, unsigned int tracker);
 /**
@@ -56,6 +56,35 @@ void add_top_two(stack_t **stack, unsigned int tracker)
 	second_top = first_top->next;
 
 	second_top->n = first_top->n + second_top->n;
+	pop_stack_node();
+
+	args->element_count -= 1;
+}
+/**
+ * sub_it - Subtracts the value of the top element from the second top element
+ * @stack:Double pointer to the top of the stack
+ * @tracker: Tracker value for error reporting
+ *
+ * This function subtracts the value of top element from the second top element
+ * of the stack. It also handles error cases when the stack is too short.
+ */
+void sub_it(stack_t **stack, unsigned int tracker)
+{
+	stack_t *first_top, *second_top;
+
+	(void) stack;
+
+	if (args->element_count < 2)
+	{
+		dprintf(2, "L%d: can't sub, stack too short\n", tracker);
+		free_resources();
+		exit(EXIT_FAILURE);
+	}
+
+	first_top = args->head;
+	second_top = first_top->next;
+
+	second_top->n = second_top->n - first_top->n;
 	pop_stack_node();
 
 	args->element_count -= 1;
