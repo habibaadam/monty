@@ -3,6 +3,7 @@
 void mod_op(stack_t **stack, unsigned int tracker);
 void print_top_char(stack_t **stack, unsigned int tracker);
 void print_top_str(stack_t **stack, unsigned int tracker);
+void rotate_top_stack(stack_t **stack, unsigned int tracker);
 
 /**
  * mod_op - Computes the remainder of division of the second top element
@@ -95,3 +96,36 @@ void print_top_str(stack_t **stack, unsigned int tracker)
 	printf("\n");
 
 }
+
+/**
+ * rotate_top_stack - this function rotates the stack from the top stack
+ * to the last stack
+ * @stack: pointer to the head of the stack
+ * @tracker: position at which this function is called within the file
+ */
+
+void rotate_top_stack(stack_t **stack, unsigned int tracker)
+{
+	stack_t *first_node, *second_node, *last_node;
+
+	(void) stack;
+	(void) tracker;
+
+	if (args->head && args->head->next)
+	{
+		first_node = args->head;
+		second_node = args->head->next;
+		last_node = args->head;
+	}
+
+	while (last_node->next != NULL)
+		last_node = last_node->next;
+
+	args->head = second_node;
+	second_node->prev = NULL;
+
+	last_node->next = first_node;
+	first_node->prev = last_node;
+	first_node->next = NULL;
+}
+

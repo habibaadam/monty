@@ -109,6 +109,7 @@ void mul_op(stack_t **stack, unsigned int tracker);
 void mod_op(stack_t **stack, unsigned int tracker);
 void print_top_char(stack_t **stack, unsigned int tracker);
 void print_top_str(stack_t **stack, unsigned int tracker);
+void rotate_top_stack(stack_t **stack, unsigned int tracker);
 
 #endif /* MONTY_H */
 
