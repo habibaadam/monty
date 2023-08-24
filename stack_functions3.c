@@ -131,28 +131,29 @@ void rotate_top_stack(stack_t **stack, unsigned int tracker)
  * @stack: Double pointer to the top of the stack
  * @tracker: Tracker value for error reporting
  *
- * This function rotates the stack such that the last element becomes the top
- * element of the stack. It ensures that the rotation never fails.
+ * This function rotates the stack so that the last element becomes the top element.
+ * The rotation operation is performed without failure.
  */
 void rotr_op(stack_t **stack, unsigned int tracker)
 {
-	stack_t *last, *current;
+	stack_t *last, *second_last;
 
+	(void) stack;
 	(void) tracker;
 
 	if (args->element_count < 2 || !(*stack) || !(*stack)->next)
 		return;
 
 	last = *stack;
-	current = *stack;
-
 	while (last->next)
 		last = last->next;
 
-	last->prev->next = NULL;
-	last->next = current;
+	second_last = last->prev;
+
 	last->prev = NULL;
-	current->prev = last;
+	last->next = *stack;
+	(*stack)->prev = last;
+	second_last->next = NULL;
 
 	*stack = last;
 }
