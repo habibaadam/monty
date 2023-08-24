@@ -131,32 +131,35 @@ void rotate_top_stack(stack_t **stack, unsigned int tracker)
  * @stack: Double pointer to the head of the stack
  * @tracker: Position at which this function is called within the file
  *
- *function rotates the stack by moving top element to the bottom of the stack.
+ *function rotates stack by moving the top element to the bottom of the stack.
  *ensures the rotation never fails and handles edge cases where stack is empty
  * or has only one element.
  */
 void rotate_bottom_stack(stack_t **stack, unsigned int tracker)
 {
-	stack_t *last_node = args->head, *second_last_node;
+	stack_t *first_node, *last_node;
 
 	(void) stack;
 	(void) tracker;
 
-	if (args->head == NULL || args->head->next == NULL)
+	if (args->element_count < 2)
 		return;
 
-	while (last_node->next != NULL)
-		last_node = last_node->next;
+	first_node = args->head;
+	while (first_node)
+	{
+		if (first_node->next == NULL)
+		{
+			last_node = first_node;
+			break;
+		}
+		first_node = first_node->next;
+	}
 
-	second_last_node = last_node->prev;
+	last_node->prev->next = NULL;
+	last_node->next = args->head;
+	last_node->prev = NULL;
 
-	last_node->prev = args->head;
-	last_node->next = args->head->next;
-	args->head->next->prev = last_node;
-	args->head->next = last_node;
-	second_last_node->next = NULL;
-
-	args->head = args->head->next;
+	args->head = last_node;
 }
-
 
