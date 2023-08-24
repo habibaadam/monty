@@ -128,6 +128,7 @@ void derive_instruction(void)
 		{"div", &div_op}, {"mul", &mul_op},
 		{"mod", &mod_op}, {"pchar", &print_top_char},
 		{"pstr", &print_top_str}, {"rotl", &rotate_top_stack},
+		{"rotr", &rotr_op},
 		{NULL, NULL}
 	};
 

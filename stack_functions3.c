@@ -4,7 +4,7 @@ void mod_op(stack_t **stack, unsigned int tracker);
 void print_top_char(stack_t **stack, unsigned int tracker);
 void print_top_str(stack_t **stack, unsigned int tracker);
 void rotate_top_stack(stack_t **stack, unsigned int tracker);
-
+void rotr_op(stack_t **stack, unsigned int tracker);
 /**
  * mod_op - Computes the remainder of division of the second top element
  *          by the top element of the stack
@@ -130,3 +130,34 @@ void rotate_top_stack(stack_t **stack, unsigned int tracker)
 		second_node = second_node->next;
 	}
 }
+/**
+ * rotr_op - Rotates the stack to the bottom
+ * @stack: Double pointer to the top of the stack
+ * @tracker: Tracker value for error reporting
+ *
+ * This function rotates the stack such that the last element becomes the top
+ * element of the stack. It ensures that the rotation never fails.
+ */
+void rotr_op(stack_t **stack, unsigned int tracker)
+{
+	stack_t *last, *current;
+
+	(void) tracker;
+
+	if (args->element_count < 2 || !(*stack) || !(*stack)->next)
+		return;
+
+	last = *stack;
+	current = *stack;
+
+	while (last->next)
+		last = last->next;
+
+	last->prev->next = NULL;
+	last->next = current;
+	last->prev = NULL;
+	current->prev = last;
+
+	*stack = last;
+}
+
