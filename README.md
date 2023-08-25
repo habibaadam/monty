@@ -80,9 +80,16 @@ To deploy this project against valgrind to detect memory leaks:
 valgrind ./monty <path/to bytecodefile>
 ```
 
-First Header  | Second Header
+ Opcode       | Description/Job
 ------------- | -------------
-Content Cell  | Content Cell
-Content Cell  | Content Cell
+push          | The opcode push pushes an element to the stack.
+pall          | The opcode prints out all elements from the stack.
+pint          | The opcode prints the value of the top value on the stack.
+pop           | The opcode removes the top element from the stack
+swap          | The opcode swaps the top two elements from the stack.
+------------  | --------------
+Arithmetic    | Description/Job
+------------  | --------------
+add           | The opcode adds the top two elements from the stack.
 
 
