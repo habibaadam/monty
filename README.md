@@ -49,7 +49,7 @@ Monty byte code files can contain blank lines (empty or made of spaces only, and
 
 root@a10e0d6b8089:~/monty# cat -e tryingbytecodes/0.monty.
 
-push 1$
+==push 1$==
 
 push 2$
 
