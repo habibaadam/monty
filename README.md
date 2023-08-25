@@ -47,7 +47,7 @@ Monty byte code files can contain blank lines (empty or made of spaces only, and
 
 ## The Monty program
 
-<code>root@a10e0d6b8089:~/monty# cat -e tryingbytecodes/0.monty.
+<code>root@a10e0d6b8089:~/monty# cat -e tryingbytecodes/00.m</code>
 
 <code>push 1$</code>
 
@@ -57,7 +57,7 @@ Monty byte code files can contain blank lines (empty or made of spaces only, and
 
 <code>pall</code>
 
-root@a10e0d6b8089:~/monty# ./monty tryingbytecodes/0.m
+<code>root@a10e0d6b8089:~/monty# ./monty tryingbytecodes/00.m</code>
 
 <code>3</code>
 
@@ -65,7 +65,7 @@ root@a10e0d6b8089:~/monty# ./monty tryingbytecodes/0.m
 
 <code>1</code>
 
-root@a10e0d6b8089:~/monty# </code>
+<code>root@a10e0d6b8089:~/monty# </code>
 
 ## Running Tests After Compiling
 
