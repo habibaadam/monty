@@ -87,7 +87,7 @@ pall          | The opcode prints out all elements from the stack.
 pint          | The opcode prints the value of the top value on the stack.
 pop           | The opcode removes the top element from the stack
 swap          | The opcode swaps the top two elements from the stack.
-------------  | --------------
+
 Arithmetic    | Description/Job
 ------------  | --------------
 add           | The opcode adds the top two elements from the stack.
