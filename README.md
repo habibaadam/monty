@@ -49,21 +49,21 @@ Monty byte code files can contain blank lines (empty or made of spaces only, and
 
 <code>root@a10e0d6b8089:~/monty# cat -e tryingbytecodes/0.monty.
 
-push 1$
+<code>push 1$</code>
 
-push 2$
+<code>push 2$</code>
 
-push 3$
+<code>push 3$</code>
 
-pall
+<code>pall</code>
 
 root@a10e0d6b8089:~/monty# ./monty tryingbytecodes/0.m
 
-3
+<code>3</code>
 
-2
+<code>2</code>
 
-1
+<code>1</code>
 
 root@a10e0d6b8089:~/monty# </code>
 
