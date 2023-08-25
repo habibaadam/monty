@@ -80,16 +80,33 @@ To deploy this project against valgrind to detect memory leaks:
 valgrind ./monty <path/to bytecodefile>
 ```
 
+## Opcode Usage
+```bash
+<opcode> <integer> OR <opcode>
+```
+
  Opcode       | Description/Job
 ------------- | -------------
-push          | The opcode push pushes an element to the stack.
-pall          | The opcode prints out all elements from the stack.
-pint          | The opcode prints the value of the top value on the stack.
-pop           | The opcode removes the top element from the stack
-swap          | The opcode swaps the top two elements from the stack.
+push          | This opcode push pushes an element to the stack.
+pall          | This opcode prints out all elements from the stack.
+pint          | This opcode prints the value of the top value on the stack.
+pop           | This opcode removes the top element from the stack
+swap          | This opcode swaps the top two elements from the stack.
+nop           | This opcode doesn't do anything.
+pchar         | This opcode prints the char at the top of the stack.
+pstr          | This opcode prints the string starting at the top of the stack.
+rotl          | This opcode rotates the stack to the top.
+rotr          | This opcode rotates the stack to the buttom.
+stack         | This opcode sets the format of the data to a stack (LIFO).
+queue         | This opcode sets the format of the data to a queue (FIFO).
+
 
 Arithmetic    | Description/Job
 ------------  | --------------
-add           | The opcode adds the top two elements from the stack.
+add           | This opcode adds the top two elements from the stack.
+sub           | This opcode substracts the first and second elements from the stack.
+div           | This opcode divides the second top element of the stack by the top element of the stack.
+mul           | This opcode multiplies the second top element of the stack by the top element of the stack.
+mod           | This opcode computes the rest of the division of the second top element of the stack by the top element of the stack.
 
 
